@@ -1,0 +1,21 @@
+*prism.txt*	A modern colorful colorscheme
+*prism*
+
+CONTENTS						*prism-contents*
+
+Introduction					|prism-introduction|
+Configuration					|prism-configure|
+
+==============================================================================
+INTRODUCTION						*prism-introduction*
+
+This plugin provides a modern colorscheme based on the Material design palette.
+True color support is a requirement. Fallback colors are not provided.
+
+------------------------------------------------------------------------------
+Configuration						*prism-configure*
+
+This is a colorscheme, what exactly do you want to configure?
+
+==============================================================================
+	vim:tw=78:sw=4:ts=8:ft=help:norl:noet:
