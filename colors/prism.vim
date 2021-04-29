@@ -113,6 +113,7 @@ endfunc
 
 
 exec s:hls('Comment', s:light_grey)
+exec s:hls('Conceal')
 exec s:hls('Constant', s:pink)
 exec s:hls('Cursor', s:none, s:none, 'inverse')
 exec s:hls('CursorLine', s:none, s:darker_grey)
