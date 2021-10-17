@@ -87,7 +87,7 @@ let s:accent_deeporange = '#ff3d00'
 let s:white = '#fafafa'
 let s:black = '#212121'
 let s:darker_grey = '#424242'
-let s:darkest_grey = '#333333'
+let s:darkest_grey = '#363636'
 
 let s:none = 'NONE'
 
