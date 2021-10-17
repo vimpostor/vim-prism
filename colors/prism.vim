@@ -87,6 +87,7 @@ let s:accent_deeporange = '#ff3d00'
 let s:white = '#fafafa'
 let s:black = '#212121'
 let s:darker_grey = '#424242'
+let s:darkest_grey = '#333333'
 
 let s:none = 'NONE'
 
@@ -135,9 +136,9 @@ exec s:hls('ModeMsg', s:yellow)
 exec s:hls('MoreMsg', s:yellow)
 exec s:hls('NonText')
 exec s:hls('Normal', s:white, s:black)
-exec s:hls('Pmenu', s:black, s:grey)
-exec s:hls('PmenuSbar', s:black, s:grey)
-exec s:hls('PmenuSel', s:black, s:pink)
+exec s:hls('Pmenu', s:white, s:darkest_grey)
+exec s:hls('PmenuSbar', s:black, s:light_grey)
+exec s:hls('PmenuSel', s:white, s:accent_blue)
 exec s:hls('PmenuThumb', s:black, s:grey)
 exec s:hls('PreProc', s:orange)
 exec s:hls('Question', s:deeporange)
