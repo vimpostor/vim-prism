@@ -171,3 +171,8 @@ hi! link TabLineFill TabLine
 hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
+
+
+" Ale
+exec s:hls('ALEVirtualTextWarning', s:yellow, s:darker_grey, 'italic')
+exec s:hls('ALEVirtualTextError', s:red, s:darker_grey, 'italic')
