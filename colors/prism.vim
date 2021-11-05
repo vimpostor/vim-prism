@@ -1,4 +1,4 @@
-set background=dark
+let s:dark = &background == 'dark'
 hi clear
 if exists("syntax_on")
 	syntax reset
@@ -89,23 +89,64 @@ let s:black = '#212121'
 let s:darker_grey = '#424242'
 let s:darkest_grey = '#363636'
 
+let s:bold = 'bold'
+let s:underline = 'underline'
+let s:undercurl = 'undercurl'
+let s:strikethrough = 'strikethrough'
+let s:reverse = 'reverse'
+let s:inverse = 'inverse'
+let s:italic = 'italic'
+let s:standout = 'standout'
+let s:nocombine = 'nocombine'
 let s:none = 'NONE'
+
+if s:dark
+	let s:std_fg = s:white
+else
+	let s:std_fg = s:black
+endif
+let s:std_bg = s:none
+
+func s:inv_color(n)
+	let c = a:n
+	return '#' . printf('%02x', 255 - str2nr(c[1:2], 16)) . printf('%02x', 255 - str2nr(c[3:4], 16)) . printf('%02x', 255 - str2nr(c[5:6], 16))
+endfunc
+
+"colorscheme is written for dark background. This function inverts colors if background=light
+func s:g(n)
+	if s:dark
+		return get(s:, a:n)
+	endif
+	let c = a:n
+	if c == 'white'
+		let c = 'black'
+	elseif c == 'black'
+		let c = 'white'
+	elseif c =~ '^light_'
+		let c = 'dark_' . c[6:]
+	elseif c =~ '^dark_'
+		let c = 'light_' . c[5:]
+	else
+		return s:inv_color(get(s:, c))
+	endif
+	return get(s:, c)
+endfunc
 
 func s:hls(name, ...)
 	if a:0 > 0
-		let l:fg = a:1
+		let l:fg = s:g(a:1)
 	else
 		"default foreground color
-		let l:fg = s:white
+		let l:fg = s:std_fg
 	endif
 	if a:0 > 1
-		let l:bg = a:2
+		let l:bg = s:g(a:2)
 	else
 		"default background color
-		let l:bg = s:none
+		let l:bg = s:std_bg
 	endif
 	if a:0 > 2
-		let l:em = a:3
+		let l:em = get(s:, a:3)
 	else
 		let l:em = s:none
 	endif
@@ -113,56 +154,56 @@ func s:hls(name, ...)
 endfunc
 
 
-exec s:hls('Comment', s:light_grey)
+exec s:hls('Comment', 'light_grey')
 exec s:hls('Conceal')
-exec s:hls('Constant', s:pink)
-exec s:hls('Cursor', s:none, s:none, 'inverse')
-exec s:hls('CursorLine', s:none, s:darker_grey)
-exec s:hls('CursorLineNr', s:deeporange)
-exec s:hls('DiffAdd', s:black, s:lightgreen)
-exec s:hls('DiffChange', s:yellow)
-exec s:hls('DiffDelete', s:black, s:red)
-exec s:hls('DiffText', s:grey)
-exec s:hls('Directory', s:green)
-exec s:hls('Error', s:red)
-exec s:hls('ErrorMsg', s:red)
-exec s:hls('FoldColumn', s:grey)
-exec s:hls('Folded', s:grey, s:none, 'italic')
-exec s:hls('Identifier', s:light_blue)
-exec s:hls('Keyword', s:red)
-exec s:hls('LineNr', s:grey)
-exec s:hls('MatchParen', s:accent_pink)
-exec s:hls('ModeMsg', s:yellow)
-exec s:hls('MoreMsg', s:yellow)
+exec s:hls('Constant', 'pink')
+exec s:hls('Cursor', 'none', 'none', 'inverse')
+exec s:hls('CursorLine', 'none', 'darker_grey')
+exec s:hls('CursorLineNr', 'deeporange')
+exec s:hls('DiffAdd', 'black', 'lightgreen')
+exec s:hls('DiffChange', 'yellow')
+exec s:hls('DiffDelete', 'black', 'red')
+exec s:hls('DiffText', 'grey')
+exec s:hls('Directory', 'green')
+exec s:hls('Error', 'red')
+exec s:hls('ErrorMsg', 'red')
+exec s:hls('FoldColumn', 'grey')
+exec s:hls('Folded', 'grey', 'none', 'italic')
+exec s:hls('Identifier', 'light_blue')
+exec s:hls('Keyword', 'red')
+exec s:hls('LineNr', 'grey')
+exec s:hls('MatchParen', 'accent_pink')
+exec s:hls('ModeMsg', 'yellow')
+exec s:hls('MoreMsg', 'yellow')
 exec s:hls('NonText')
-exec s:hls('Normal', s:white, s:black, s:none)
-exec s:hls('Pmenu', s:white, s:darkest_grey)
-exec s:hls('PmenuSbar', s:black, s:darkest_grey)
-exec s:hls('PmenuSel', s:black, s:light_blue)
-exec s:hls('PmenuThumb', s:black, s:light_grey)
-exec s:hls('PreProc', s:orange)
-exec s:hls('Question', s:deeporange)
-exec s:hls('Search', s:black, s:deeporange)
-exec s:hls('SignColumn', s:black)
-exec s:hls('Special', s:orange)
-exec s:hls('SpellBad', s:red, s:none, 'undercurl')
-exec s:hls('SpellCap', s:white, s:none, 'undercurl')
-exec s:hls('SpellLocal', s:white, s:none, 'underline')
-exec s:hls('SpellRare', s:white, s:none, 'underline')
-exec s:hls('Statement', s:red)
-exec s:hls('StatusLine', s:light_grey)
-exec s:hls('StatusLineNC', s:light_grey)
-exec s:hls('String', s:light_green)
-exec s:hls('TabLine', s:light_grey, s:bluegrey)
-exec s:hls('TabLineSel', s:white, s:bluegrey)
-exec s:hls('Title', s:green)
-exec s:hls('Todo', s:light_grey)
-exec s:hls('Type', s:green)
-exec s:hls('Underlined', s:blue, s:none, 'underline')
-exec s:hls('VertSplit', s:cyan)
-exec s:hls('Visual', s:none, s:dark_grey, 'italic')
-exec s:hls('WarningMsg', s:yellow)
-exec s:hls('WildMenu', s:accent_pink)
+exec s:hls('Normal', 'white', 'black', 'none')
+exec s:hls('Pmenu', 'white', 'darkest_grey')
+exec s:hls('PmenuSbar', 'black', 'darkest_grey')
+exec s:hls('PmenuSel', 'black', 'light_blue')
+exec s:hls('PmenuThumb', 'black', 'light_grey')
+exec s:hls('PreProc', 'orange')
+exec s:hls('Question', 'deeporange')
+exec s:hls('Search', 'black', 'deeporange')
+exec s:hls('SignColumn', 'black')
+exec s:hls('Special', 'orange')
+exec s:hls('SpellBad', 'red', 'none', 'undercurl')
+exec s:hls('SpellCap', 'white', 'none', 'undercurl')
+exec s:hls('SpellLocal', 'white', 'none', 'underline')
+exec s:hls('SpellRare', 'white', 'none', 'underline')
+exec s:hls('Statement', 'red')
+exec s:hls('StatusLine', 'light_grey')
+exec s:hls('StatusLineNC', 'light_grey')
+exec s:hls('String', 'light_green')
+exec s:hls('TabLine', 'light_grey', 'bluegrey')
+exec s:hls('TabLineSel', 'white', 'bluegrey')
+exec s:hls('Title', 'green')
+exec s:hls('Todo', 'light_grey')
+exec s:hls('Type', 'green')
+exec s:hls('Underlined', 'blue', 'none', 'underline')
+exec s:hls('VertSplit', 'cyan')
+exec s:hls('Visual', 'none', 'dark_grey', 'italic')
+exec s:hls('WarningMsg', 'yellow')
+exec s:hls('WildMenu', 'accent_pink')
 
 hi! link CursorColumn CursorLine
 hi! link IncSearch Search
@@ -174,5 +215,5 @@ hi! link diffRemoved DiffDelete
 
 
 "ale
-exec s:hls('ALEVirtualTextWarning', s:yellow, s:darker_grey, 'italic')
-exec s:hls('ALEVirtualTextError', s:red, s:darker_grey, 'italic')
+exec s:hls('ALEVirtualTextWarning', 'yellow', 'darker_grey', 'italic')
+exec s:hls('ALEVirtualTextError', 'red', 'darker_grey', 'italic')
