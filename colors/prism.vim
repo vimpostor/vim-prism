@@ -93,23 +93,23 @@ let s:none = 'NONE'
 
 func s:hls(name, ...)
 	if a:0 > 0
-		let l:fg = a:1
+		let fg = a:1
 	else
 		"default foreground color
-		let l:fg = s:white
+		let fg = s:white
 	endif
 	if a:0 > 1
-		let l:bg = a:2
+		let bg = a:2
 	else
 		"default background color
-		let l:bg = s:none
+		let bg = s:none
 	endif
 	if a:0 > 2
-		let l:em = a:3
+		let em = a:3
 	else
-		let l:em = s:none
+		let em = s:none
 	endif
-	return printf('hi %s guifg=%s guibg=%s gui=%s cterm=%s', a:name, l:fg, l:bg, l:em, l:em)
+	return printf('hi %s guifg=%s guibg=%s gui=%s cterm=%s', a:name, fg, bg, em, em)
 endfunc
 
 
