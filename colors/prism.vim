@@ -113,7 +113,7 @@ func s:hls(name, ...)
 endfunc
 
 
-exec s:hls('Comment', s:light_grey)
+exec s:hls('Comment', s:light_grey, s:none, 'italic')
 exec s:hls('Conceal')
 exec s:hls('Constant', s:pink)
 exec s:hls('Cursor', s:none, s:none, 'inverse')
