@@ -6,6 +6,10 @@ func Is_dark(color)
 	return max(map([1, 3, 5], {_, x -> a:color[x] < '8'}))
 endfunc
 
+func Test_loaded()
+	call assert_equal('prism', g:colors_name)
+endfunc
+
 func Test_darktheme_change()
 	set background=dark
 	let clr = Read_color('Normal', 'bg')
