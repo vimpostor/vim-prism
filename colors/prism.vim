@@ -6,7 +6,7 @@ endif
 let g:colors_name = 'prism'
 
 
-"palette
+" palette
 let s:red = '#f44336'
 let s:pink = '#e91e63'
 let s:purple = '#9c27b0'
@@ -95,13 +95,13 @@ func s:hls(name, ...)
 	if a:0 > 0
 		let fg = a:1
 	else
-		"default foreground color
+		" default foreground color
 		let fg = s:white
 	endif
 	if a:0 > 1
 		let bg = a:2
 	else
-		"default background color
+		" default background color
 		let bg = s:none
 	endif
 	if a:0 > 2
@@ -173,6 +173,6 @@ hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
 
 
-"ale
+" ale
 exec s:hls('ALEVirtualTextWarning', s:yellow, s:darker_grey, 'italic')
 exec s:hls('ALEVirtualTextError', s:red, s:darker_grey, 'italic')
