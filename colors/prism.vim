@@ -1,4 +1,3 @@
-set background=dark
 hi clear
 if exists("syntax_on")
 	syntax reset
@@ -88,18 +87,55 @@ let s:white = '#fafafa'
 let s:black = '#212121'
 let s:darker_grey = '#424242'
 let s:darkest_grey = '#363636'
+let s:lighter_grey = '#a1a1a1'
+let s:lightest_grey = '#c2c2c2'
 
 let s:none = 'NONE'
 
+" inverts a color definition from dark mode to light mode
+func s:flip(name)
+	let res = a:name
+
+	if res == 'white'
+		let res = 'black'
+	elseif res == 'black'
+		let res = 'white'
+	elseif strpart(res, 0, 6) == 'light_'
+		let res = 'dark_' . strpart(res, 6)
+	elseif strpart(res, 0, 5) == 'dark_'
+		let res = 'light_' . strpart(res, 5)
+	elseif strpart(res, 0, 7) == 'darker_'
+		let res = 'lighter_' . strpart(res, 7)
+	elseif strpart(res, 0, 8) == 'darkest_'
+		let res = 'lightest_' . strpart(res, 8)
+	elseif strpart(res, 0, 7) == 'accent_'
+		let res = 'dark_' . strpart(res, 7)
+	elseif res != 'none'
+		" normal color, without any prefix
+		let res = 'dark_' . res
+	endif
+
+	return res
+endfunc
+
+" resolves a color name to a final color, taking into account the light/dark theme
+func s:resolve(name)
+	let color = a:name
+	if &background == 'light'
+		let color = s:flip(color)
+	endif
+	return get(s:, color)
+endfunc
+
 func s:hls(name, ...)
 	if a:0 > 0
-		let fg = get(s:, a:1)
+		let fg = s:resolve(a:1)
 	else
 		" default foreground color
 		let fg = s:white
 	endif
 	if a:0 > 1
-		let bg = get(s:, a:2)
+		let bg = s:resolve(a:2)
 	else
 		" default background color
 		let bg = s:none
