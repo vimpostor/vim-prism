@@ -87,8 +87,8 @@ let s:white = '#fafafa'
 let s:black = '#212121'
 let s:darker_grey = '#424242'
 let s:darkest_grey = '#363636'
-let s:lighter_grey = '#a1a1a1'
-let s:lightest_grey = '#c2c2c2'
+let s:lighter_grey = '#dedede'
+let s:lightest_grey = '#e9e9e9'
 
 let s:none = 'NONE'
 
