@@ -7,18 +7,16 @@
 - Dark and light theme support
 - Material design colors
 - True color support
-- Vibrant and colorful 🎨
+- Vibrant and colorful
 
 # Installation
 
-With `vim-plug` add:
+With `vim-plug` add the following lines to your `.vimrc`:
 
 ```vim
 Plug 'vimpostor/vim-prism'
-```
-
-Finally put the following line into your `.vimrc`:
-
-```vim
 colorscheme prism
 ```
+
+
+The `background` vim option is respected, thus to use the light/dark theme variant use `set background=light`/`set background=dark` respectively.
