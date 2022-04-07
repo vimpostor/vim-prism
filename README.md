@@ -19,4 +19,4 @@ colorscheme prism
 ```
 
 
-The `background` vim option is respected, thus to use the light/dark theme variant use `set background=light`/`set background=dark` respectively.
+Use the `background` option to switch between the dark and light theme.
