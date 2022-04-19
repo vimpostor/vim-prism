@@ -13,7 +13,7 @@ This plugin provides a modern colorscheme based on the Material design palette.
 True color support is a requirement. Fallback colors are not provided.
 
 ------------------------------------------------------------------------------
-Configuration						*prism-configure*
+CONFIGURATION						*prism-configure*
 
 This is a colorscheme, what exactly do you want to configure?
 
