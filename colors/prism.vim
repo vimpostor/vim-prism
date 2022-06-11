@@ -196,7 +196,7 @@ exec s:hls('Todo', 'light_grey')
 exec s:hls('Type', 'green')
 exec s:hls('Underlined', 'blue', 'none', 'underline')
 exec s:hls('VertSplit', 'cyan')
-exec s:hls('Visual', 'none', 'dark_grey', 'italic')
+exec s:hls('Visual', 'none', 'darker_grey', 'italic')
 exec s:hls('WarningMsg', 'yellow')
 exec s:hls('WildMenu', 'accent_pink')
 
