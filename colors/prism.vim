@@ -210,5 +210,5 @@ hi! link diffRemoved DiffDelete
 
 
 " ale
-exec s:hls('ALEVirtualTextWarning', 'yellow', 'darker_grey', 'italic')
-exec s:hls('ALEVirtualTextError', 'red', 'darker_grey', 'italic')
+exec s:hls('ALEVirtualTextWarning', 'yellow', 'none', 'italic')
+exec s:hls('ALEVirtualTextError', 'red', 'none', 'italic')
