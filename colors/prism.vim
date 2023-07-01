@@ -150,7 +150,6 @@ endfunc
 
 
 exec s:hls('Comment', 'light_grey', 'none', 'italic')
-exec s:hls('Conceal')
 exec s:hls('Constant', 'pink')
 exec s:hls('Cursor', 'none', 'none', 'inverse')
 exec s:hls('CursorLine', 'none', 'darker_grey')
@@ -200,6 +199,7 @@ exec s:hls('Visual', 'none', 'darker_grey', 'italic')
 exec s:hls('WarningMsg', 'yellow')
 exec s:hls('WildMenu', 'accent_pink')
 
+hi! link Conceal Comment
 hi! link CursorColumn CursorLine
 hi! link IncSearch Search
 hi! link SpecialKey Special
