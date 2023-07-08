@@ -215,4 +215,5 @@ exec s:hls('ALEVirtualTextWarning', 'yellow', 'none', 'italic')
 exec s:hls('ALEVirtualTextError', 'red', 'none', 'italic')
 
 " lsp
-hi! link LspInlayHintsType Comment
+hi! link LspInlayHintsType Label
+hi! link LspInlayHintsParam Label
