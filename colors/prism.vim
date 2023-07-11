@@ -165,7 +165,7 @@ exec s:hls('FoldColumn', 'grey')
 exec s:hls('Folded', 'grey', 'none', 'italic')
 exec s:hls('Identifier', 'light_blue')
 exec s:hls('Keyword', 'red')
-exec s:hls('Label', 'black', 'accent_amber', 'italic')
+exec s:hls('Label', 'accent_red')
 exec s:hls('LineNr', 'grey')
 exec s:hls('MatchParen', 'accent_pink')
 exec s:hls('ModeMsg', 'yellow')
@@ -215,5 +215,5 @@ exec s:hls('ALEVirtualTextWarning', 'yellow', 'none', 'italic')
 exec s:hls('ALEVirtualTextError', 'red', 'none', 'italic')
 
 " lsp
-hi! link LspInlayHintsType Label
-hi! link LspInlayHintsParam Label
+exec s:hls('LspInlayHintsType', 'black', 'accent_amber', 'italic')
+exec s:hls('LspInlayHintsParam', 'black', 'light_amber', 'italic')
