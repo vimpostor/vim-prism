@@ -18,5 +18,4 @@ Plug 'vimpostor/vim-prism'
 colorscheme prism
 ```
 
-
 Use the `background` option to switch between the dark and light theme.
