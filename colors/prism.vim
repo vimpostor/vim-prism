@@ -206,6 +206,8 @@ exec s:hls('TabLine', 'light_grey', 'bluegrey')
 exec s:hls('TabLineSel', 'white', 'bluegrey')
 exec s:hls('Title', 'dark_red')
 exec s:hls('Todo', 'light_grey')
+exec s:hls('ToolbarButton', 'none', 'light_grey')
+exec s:hls('ToolbarLine', 'none', 'light_grey')
 exec s:hls('Type', 'green')
 exec s:hls('Underlined', 'blue', 'none', 'underline')
 exec s:hls('VertSplit', 'cyan')
@@ -223,6 +225,8 @@ hi! link CursorColumn CursorLine
 hi! link ErrorMsg Error
 hi! link IncSearch Search
 hi! link SpecialKey Special
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
 hi! link TabLineFill TabLine
 hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
