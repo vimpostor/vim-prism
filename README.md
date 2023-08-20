@@ -2,7 +2,8 @@
 
 `prism` is a modern colorscheme based on the Material design palette.
 
-![Screenshot](https://user-images.githubusercontent.com/21310755/162016424-1889f392-46c9-42da-9485-09939e86e9b3.png)
+![Light](https://user-images.githubusercontent.com/21310755/261866245-9a36beb0-e756-43a2-85ad-3a21f1d9b643.png)
+![Dark](https://user-images.githubusercontent.com/21310755/261866219-60c291a9-8ed3-4a51-8d7d-fa0e169ae667.png)
 
 - Dark and light theme support
 - Material design colors
