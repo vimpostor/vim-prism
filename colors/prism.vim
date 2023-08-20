@@ -154,18 +154,23 @@ func s:hls(name, ...)
 endfunc
 
 
+exec s:hls('ColorColumn', 'none', 'dark_red')
 exec s:hls('Comment', 'light_grey', 'none', 'italic')
 exec s:hls('Constant', 'pink')
 exec s:hls('Cursor', 'none', 'none', 'inverse')
 exec s:hls('CursorLine', 'none', 'darker_grey')
 exec s:hls('CursorLineNr', 'deeporange')
+exec s:hls('DiagnosticVirtualTextError', 'red', 'none', 'italic')
+exec s:hls('DiagnosticVirtualTextWarn', 'yellow', 'none', 'italic')
+exec s:hls('DiagnosticVirtualTextInfo', 'grey', 'none', 'italic')
+exec s:hls('DiagnosticVirtualTextHint', 'light_yellow', 'none', 'italic')
+exec s:hls('DiagnosticVirtualTextOk', 'lightgreen', 'none', 'italic')
 exec s:hls('DiffAdd', 'black', 'lightgreen')
 exec s:hls('DiffChange', 'yellow')
 exec s:hls('DiffDelete', 'black', 'red')
 exec s:hls('DiffText', 'black', 'lightgreen')
 exec s:hls('Directory', 'green')
 exec s:hls('Error', 'red')
-exec s:hls('ErrorMsg', 'red')
 exec s:hls('FoldColumn', 'grey')
 exec s:hls('Folded', 'grey', 'none', 'italic')
 exec s:hls('Identifier', 'light_blue')
@@ -183,6 +188,9 @@ exec s:hls('PmenuSel', 'black', 'light_blue')
 exec s:hls('PmenuThumb', 'black', 'light_grey')
 exec s:hls('PreProc', 'orange')
 exec s:hls('Question', 'deeporange')
+exec s:hls('RedrawDebugClear', 'none', 'yellow')
+exec s:hls('RedrawDebugComposed', 'none', 'green')
+exec s:hls('RedrawDebugRecompose', 'none', 'red')
 exec s:hls('Search', 'black', 'deeporange')
 exec s:hls('SignColumn', 'black')
 exec s:hls('Special', 'orange')
@@ -205,8 +213,14 @@ exec s:hls('Visual', 'none', 'darker_grey', 'italic')
 exec s:hls('WarningMsg', 'yellow')
 exec s:hls('WildMenu', 'accent_pink')
 
+hi! link DiagnosticError Error
+hi! link DiagnosticWarn WarningMsg
+hi! link DiagnosticInfo Comment
+hi! link DiagnosticHint Comment
+hi! link DiagnosticOk DiffAdd
 hi! link Conceal Comment
 hi! link CursorColumn CursorLine
+hi! link ErrorMsg Error
 hi! link IncSearch Search
 hi! link SpecialKey Special
 hi! link TabLineFill TabLine
@@ -214,10 +228,17 @@ hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
 
+if has('nvim')
+	exec s:hls('FloatShadow', 'none', 'black', s:none, 'blend=80')
+	exec s:hls('FloatShadowThrough', 'none', 'black', s:none, 'blend=100')
+
+	hi! link NvimInternalError Error
+endif
+
 
 " ale
-exec s:hls('ALEVirtualTextWarning', 'yellow', 'none', 'italic')
-exec s:hls('ALEVirtualTextError', 'red', 'none', 'italic')
+hi! link ALEVirtualTextError DiagnosticVirtualTextError
+hi! link ALEVirtualTextWarning DiagnosticVirtualTextWarn
 
 " lsp
 exec s:hls('LspInlayHintsType', 'black', 'accent_amber', 'italic')
