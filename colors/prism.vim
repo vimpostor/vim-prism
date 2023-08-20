@@ -145,7 +145,12 @@ func s:hls(name, ...)
 	else
 		let em = s:none
 	endif
-	return printf('hi %s guifg=%s guibg=%s gui=%s cterm=%s', a:name, fg, bg, em, em)
+	let extra = ''
+	if a:0 > 3
+		let extra = ' ' . a:4
+	endif
+
+	return printf('hi %s guifg=%s guibg=%s gui=%s cterm=%s%s', a:name, fg, bg, em, em, extra)
 endfunc
 
 
