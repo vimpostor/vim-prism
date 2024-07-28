@@ -228,9 +228,9 @@ hi! link SpecialKey Special
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
 hi! link TabLineFill TabLine
-hi! link diffAdded DiffAdd
-hi! link diffChanged DiffChange
-hi! link diffRemoved DiffDelete
+hi! link Added DiffAdd
+hi! link Changed DiffChange
+hi! link Removed DiffDelete
 
 if has('nvim')
 	exec s:hls('FloatShadow', 'none', 'black', s:none, 'blend=80')
