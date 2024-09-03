@@ -245,5 +245,5 @@ hi! link ALEVirtualTextError DiagnosticVirtualTextError
 hi! link ALEVirtualTextWarning DiagnosticVirtualTextWarn
 
 " lsp
-exec s:hls('LspInlayHintsType', 'black', 'accent_amber', 'italic')
-exec s:hls('LspInlayHintsParam', 'black', 'light_amber', 'italic')
+exec s:hls('LspInlayHintsType', 'light_amber', 'black', 'italic')
+exec s:hls('LspInlayHintsParam', 'light_cyan', 'black', 'italic')
