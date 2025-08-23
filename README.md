@@ -25,3 +25,12 @@ colorscheme prism
 ```
 
 Use the `background` option to switch between the dark and light theme.
+
+# Alternatives
+
+Since many developers unfortunately believe in the falsehood that only dark colorschemes are worth using, there are only very few colorschemes around where the light variant is as polished as the dark variant.
+Here are some of those colorschemes that I can personally recommend:
+
+- [everforest](https://github.com/sainnhe/everforest)
+- [papercolor](https://github.com/NLKNguyen/papercolor-theme)
+- `retrobox` from the [default Vim colorschemes](https://github.com/vim/colorschemes)
